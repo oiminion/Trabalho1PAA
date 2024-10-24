@@ -6,6 +6,8 @@
 #include "MergeSort.h"
 #include "HeapSort.h"
 #include "SelectionSort.h"
+#include "ShellSort.h"
+#include "InsertionSort.h"
 
 enum ORDER
 {
@@ -63,7 +65,7 @@ void load_random_array(int array[], int size, int i)
 
 int main()
 {
-    int size = 10000;
+    int size = 50000;
     enum ORDER order = random;
 
     int test_quantity = 100;
@@ -93,11 +95,14 @@ int main()
         //BubbleSort(array, size);
         //MergeSort(array, 0, size);
         //HeapSort(array, size);
+        //SelectionSort(array,size);
+        //ShellSort(array,size);
         //mudar algoritimo
 
         clock_t start = clock();
-        SelectionSort(array,size);
+        InsertionSort(array,size);
         clock_t end = clock();
+
 
         for(int j = 0; j < size - 1; j++)
         {
