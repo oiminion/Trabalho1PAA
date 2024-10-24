@@ -5,6 +5,7 @@
 #include "QuickSort.h"
 #include "MergeSort.h"
 #include "HeapSort.h"
+#include "SelectionSort.h"
 
 enum ORDER
 {
@@ -91,9 +92,11 @@ int main()
 
         //BubbleSort(array, size);
         //MergeSort(array, 0, size);
+        //HeapSort(array, size);
         //mudar algoritimo
+
         clock_t start = clock();
-        HeapSort(array, size);
+        SelectionSort(array,size);
         clock_t end = clock();
 
         for(int j = 0; j < size - 1; j++)
