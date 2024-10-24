@@ -96,7 +96,7 @@ int CreateCase(int array[], int size, enum ORDER order, int quantity)
             return 1;
         }
     }
-    else
+    else if(order == random)
     {
         for(int i = 1; i <= quantity; i++)
         {
@@ -104,7 +104,7 @@ int CreateCase(int array[], int size, enum ORDER order, int quantity)
             FILE *file = NULL;
             char directory_name[50] = "Aleatorio";
 
-            char ID[3];
+            char ID[4];
             itoa(i, ID,10);
 
             strcat(directory_name, ID);
@@ -132,7 +132,7 @@ int CreateCase(int array[], int size, enum ORDER order, int quantity)
 
 int main()
 {
-    int size = 10000;
+    int size = 50000;
     int random_order_quantity = 100;
 
     srand(time(0));
