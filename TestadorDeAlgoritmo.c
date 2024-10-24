@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 #include "BubbleSort.h"
 #include "QuickSort.h"
 
@@ -14,9 +15,7 @@ void load_ascending_array(int array[], int size)
 {
     FILE *file = NULL;
     char directory_name[50] = ".\\CasoDeTeste\\Crescente_";
-    char aux[10];
-    itoa(size, aux,10);
-    strcat(directory_name, aux);
+    strcat(directory_name, "50000");
     strcat(directory_name, ".dat\0");
 
     if(file = fopen(directory_name,"rb"))
@@ -30,9 +29,7 @@ void load_descending_array(int array[], int size)
 {
     FILE *file = NULL;
     char directory_name[50] = ".\\CasoDeTeste\\Decrescente_";
-    char aux[10];
-    itoa(size, aux,10);
-    strcat(directory_name, aux);
+    strcat(directory_name, "50000");
     strcat(directory_name, ".dat\0");
 
     if(file = fopen(directory_name,"rb"))
@@ -49,12 +46,9 @@ void load_random_array(int array[], int size, int i)
 
     char ID[4];
     itoa(i, ID,10);
-    char aux[10];
-    itoa(size, aux,10);
-
     strcat(directory_name, ID);
     strcat(directory_name, "_");
-    strcat(directory_name, aux);
+    strcat(directory_name, "50000");
     strcat(directory_name, ".dat\0");
 
     if(file = fopen(directory_name,"rb"))
@@ -68,6 +62,7 @@ int main()
 {
     int size = 10000;
     enum ORDER order = random;
+
     int test_quantity = 100;
     int array[size];
 
@@ -92,8 +87,9 @@ int main()
             load_random_array(array, size, i+1);
         }
 
-        clock_t start = clock();
         //BubbleSort(array, size);
+        //mudar algoritimo
+        clock_t start = clock();
         BetterBubbleSort(array, size);
         clock_t end = clock();
 
@@ -113,18 +109,23 @@ int main()
         test_time[i] = elapsed;
     }
 
-    printf("flag: %d\n",flag);
-    printf("error: %d\n",error);
-
     double result = 0;
     for(int i = 0; i < test_quantity; i++)
     {
         result += test_time[i];
     }
+
     result = (double)result/test_quantity;
-    printf("media: %lf\n",result);
 
-
+    if(error == -1)
+    {
+        printf("media: %lf\n",result);
+    }
+    else
+    {
+        printf("flag: %d\n",flag);
+        printf("error: %d\n",error);
+    }
 
     return 0;
 }
