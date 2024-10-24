@@ -101,7 +101,7 @@ int main()
         //mudar algoritimo
 
         clock_t start = clock();
-        MergeSort(array,size);
+        QuickSortMiddle(array, 0, size - 1);
         clock_t end = clock();
 
 
