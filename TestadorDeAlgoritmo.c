@@ -47,7 +47,7 @@ void load_random_array(int array[], int size, int i)
     FILE *file = NULL;
     char directory_name[50] = ".\\CasoDeTeste\\Aleatorio";
 
-    char ID[3];
+    char ID[4];
     itoa(i, ID,10);
     char aux[10];
     itoa(size, aux,10);

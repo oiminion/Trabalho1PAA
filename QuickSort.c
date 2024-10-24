@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-void QuickSortFirst()
+void QuickSortFirst(int array[], int size)
 {
 
 }
 
-void QuickSortMiddle()
+void QuickSortMiddle(int array[], int size)
 {
 
 }
