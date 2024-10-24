@@ -15,7 +15,7 @@ enum ORDER
 void shuffle(int array[], int size)
 {
     int aux1, aux2, aux3;
-    for(long int i = 0; i < (size * size); i++)
+    for(unsigned long int i = 0; i < (size * size); i++)
     {
         aux1 = rand() % size;
         aux2 = rand() % size;
@@ -96,7 +96,7 @@ int CreateCase(int array[], int size, enum ORDER order, int quantity)
             return 1;
         }
     }
-    else if(order == random)
+    else
     {
         for(int i = 1; i <= quantity; i++)
         {
