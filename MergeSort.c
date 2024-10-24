@@ -53,14 +53,19 @@ void merge(int array[], int inicio, int meio, int tamanho)
 }
 
 // l = inicio, r = tamanho
-void MergeSort(int array[], int inicio, int tamanho)
+
+void MergeSort(int array[], int tamanho){
+    mergeSort(array, 0, tamanho);
+}
+
+void mergeSort(int array[], int inicio, int tamanho)
 {
     if (inicio < tamanho) {
         int meio = inicio + (tamanho - inicio) / 2;
 
         // Sort first and second halves
-        MergeSort(array, inicio, meio);
-        MergeSort(array, meio + 1, tamanho);
+        mergeSort(array, inicio, meio);
+        mergeSort(array, meio + 1, tamanho);
 
         merge(array, inicio, meio, tamanho);
     }

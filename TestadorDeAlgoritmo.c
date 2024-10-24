@@ -93,14 +93,15 @@ int main()
         }
 
         //BubbleSort(array, size);
-        //MergeSort(array, 0, size);
+        //MergeSort(array, size);
         //HeapSort(array, size);
         //SelectionSort(array,size);
         //ShellSort(array,size);
+        //InsertionSort(array,size);
         //mudar algoritimo
 
         clock_t start = clock();
-        InsertionSort(array,size);
+        MergeSort(array,size);
         clock_t end = clock();
 
 
