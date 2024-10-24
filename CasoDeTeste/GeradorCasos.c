@@ -133,7 +133,7 @@ int CreateCase(int array[], int size, enum ORDER order, int quantity)
 int main()
 {
     int size = 10000;
-    int random_order_quantity = 10;
+    int random_order_quantity = 100;
 
     srand(time(0));
 

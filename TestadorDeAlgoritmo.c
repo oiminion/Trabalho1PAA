@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "BubbleSort.h"
+#include "QuickSort.h"
 
 enum ORDER
 {
@@ -92,7 +93,8 @@ int main()
         }
 
         clock_t start = clock();
-        BubbleSort(array, size);
+        //BubbleSort(array, size);
+        BetterBubbleSort(array, size);
         clock_t end = clock();
 
         for(int j = 0; j < size - 1; j++)
@@ -101,8 +103,11 @@ int main()
             {
                 flag = 0;
                 error = i;
+                break;
             }
         }
+
+        if(error != -1)break;
 
         double elapsed = (double)(end - start)/CLOCKS_PER_SEC;
         test_time[i] = elapsed;
