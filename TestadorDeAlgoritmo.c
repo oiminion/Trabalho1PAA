@@ -3,6 +3,8 @@
 #include <string.h>
 #include "BubbleSort.h"
 #include "QuickSort.h"
+#include "MergeSort.h"
+#include "HeapSort.h"
 
 enum ORDER
 {
@@ -88,9 +90,10 @@ int main()
         }
 
         //BubbleSort(array, size);
+        //MergeSort(array, 0, size);
         //mudar algoritimo
         clock_t start = clock();
-        BetterBubbleSort(array, size);
+        HeapSort(array, size);
         clock_t end = clock();
 
         for(int j = 0; j < size - 1; j++)
