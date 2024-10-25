@@ -54,9 +54,7 @@ void merge(int array[], int inicio, int meio, int tamanho)
 
 // l = inicio, r = tamanho
 
-void MergeSort(int array[], int tamanho){
-    mergeSort(array, 0, tamanho);
-}
+
 
 void mergeSort(int array[], int inicio, int tamanho)
 {
@@ -69,4 +67,9 @@ void mergeSort(int array[], int inicio, int tamanho)
 
         merge(array, inicio, meio, tamanho);
     }
+}
+
+
+void MergeSort(int array[], int tamanho){
+    mergeSort(array, 0, tamanho);
 }
