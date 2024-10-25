@@ -83,7 +83,7 @@ void load_random_array(int array[], int size, int i)
 
 int main()
 {
-    int size = 50000;
+    int size = 100000;
     enum ORDER order = randomm;
 
     int test_quantity = 100;
@@ -157,7 +157,7 @@ int main()
         printf("error: %d\n",error);
     }
 
-    printf("%d",array[49999]);
+    printf("%d",array[99999]);
 
     return 0;
 }
