@@ -20,7 +20,7 @@ void load_ascending_array(int array[], int size)
 {
     FILE *file = NULL;
     char directory_name[50] = ".\\CasoDeTeste\\Crescente_";
-    strcat(directory_name, "50000");
+    strcat(directory_name, "100000");
     strcat(directory_name, ".dat\0");
 
     if(file = fopen(directory_name,"rb"))
@@ -34,7 +34,7 @@ void load_descending_array(int array[], int size)
 {
     FILE *file = NULL;
     char directory_name[50] = ".\\CasoDeTeste\\Decrescente_";
-    strcat(directory_name, "50000");
+    strcat(directory_name, "100000");
     strcat(directory_name, ".dat\0");
 
     if(file = fopen(directory_name,"rb"))
@@ -71,7 +71,7 @@ void load_random_array(int array[], int size, int i)
     convert_int_str(i, ID);
     strcat(directory_name, ID);
     strcat(directory_name, "_");
-    strcat(directory_name, "50000");
+    strcat(directory_name, "100000");
     strcat(directory_name, ".dat\0");
 
     if(file = fopen(directory_name,"rb"))
@@ -125,7 +125,7 @@ int main()
 
         for(int j = 0; j < size - 1; j++)
         {
-            if(array[j] > array[j + 1])
+            if(array[j] + 1 != array[j + 1])
             {
                 flag = 0;
                 error = i;
