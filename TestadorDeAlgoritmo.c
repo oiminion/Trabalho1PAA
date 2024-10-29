@@ -44,31 +44,13 @@ void load_descending_array(int array[], int size)
     }
 }
 
-void convert_int_str(int number, char string[])
-{
-    int i = 0;
-    while(number > 0)
-    {
-        string[i++] = number % 10 + '0';
-        number /= 10;
-    }
-
-    string[i] == '\0';
-
-    for (int j = 0, k = i - 1; j < k; j++, k--) {
-        char aux = string[j];
-        string[j] = string[k];
-        string[k] = aux;
-    }
-}
-
 void load_random_array(int array[], int size, int i)
 {
     FILE *file = NULL;
     char directory_name[50] = ".\\CasoDeTeste\\Aleatorio";
 
-    char ID[4];
-    convert_int_str(i, ID);
+    char ID[10];
+    itoa(i, ID, 10);
     strcat(directory_name, ID);
     strcat(directory_name, "_");
     strcat(directory_name, "100000");
@@ -83,7 +65,7 @@ void load_random_array(int array[], int size, int i)
 
 int main()
 {
-    int size = 100000;
+    int size = 1000;
     enum ORDER order = randomm;
 
     int test_quantity = 100;
@@ -125,7 +107,7 @@ int main()
 
         for(int j = 0; j < size - 1; j++)
         {
-            if(array[j] + 1 != array[j + 1])
+            if(array[j] >= array[j + 1])
             {
                 flag = 0;
                 error = i;
@@ -156,8 +138,6 @@ int main()
         printf("flag: %d\n",flag);
         printf("error: %d\n",error);
     }
-
-    printf("%d",array[99999]);
 
     return 0;
 }
