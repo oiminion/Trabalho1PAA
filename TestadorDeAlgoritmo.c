@@ -65,7 +65,7 @@ void load_random_array(int array[], int size, int i)
 
 int main()
 {
-    int size = 1000;
+    int size = 45000;
     enum ORDER order = randomm;
 
     int test_quantity = 100;
@@ -101,7 +101,7 @@ int main()
         //mudar algoritimo
 
         clock_t start = clock();
-        HeapSort(array,size);
+        QuickSortMiddle(array,0,size-1);
         clock_t end = clock();
 
 
