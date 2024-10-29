@@ -63,81 +63,90 @@ void load_random_array(int array[], int size, int i)
     }
 }
 
+void calculate_avarege(enum ORDER order,int size,int test_quantity,int array[],int flag,int error)
+{
+        double test_time[test_quantity];
+        int counter = 0;
+
+        for(int i = 0; i < test_quantity; i++)
+        {
+            if(order == ascending)
+            {
+                load_ascending_array(array, size);
+            }
+            else if(order == descending)
+            {
+                load_descending_array(array, size);
+            }
+            else if(order == randomm)
+            {
+                load_random_array(array, size, i+1);
+            }
+
+            //BubbleSort(array, size);
+            //MergeSort(array, size);
+            //HeapSort(array, size);
+            //SelectionSort(array,size);
+            //ShellSort(array,size);
+            //InsertionSort(array,size);
+            //mudar algoritimo
+
+            clock_t start = clock();
+            QuickSortMiddle(array,0,size-1);
+            clock_t end = clock();
+
+
+            for(int j = 0; j < size - 1; j++)
+            {
+                if(array[j] >= array[j + 1])
+                {
+                    flag = 0;
+                    error = i;
+                    break;
+                }
+            }
+
+            if(error != -1)break;
+
+            double elapsed = (double)(end - start)/CLOCKS_PER_SEC;
+            test_time[i] = elapsed;
+        }
+
+        double result = 0;
+        for(int i = 0; i < test_quantity; i++)
+        {
+            result += test_time[i];
+        }
+
+        result = (double)result/test_quantity;
+
+        if(error == -1)
+        {
+            printf("media %d: %lf\n",size,result);
+        }
+        else
+        {
+            printf("size: %d\n",size);
+            printf("error: %d\n",error);
+        }
+}
+
 int main()
 {
-    int size = 45000;
+    int size = 1000;
     enum ORDER order = randomm;
 
     int test_quantity = 100;
-    int array[size];
+    int array[100000];
 
     int flag = 1;
     int error = -1;
 
-    double test_time[test_quantity];
-    int counter = 0;
+    calculate_avarege(order,size, test_quantity, array, flag, error);
 
-    for(int i = 0; i < test_quantity; i++)
+    for(size = 5000; size <= 100000; size += 5000)
     {
-        if(order == ascending)
-        {
-            load_ascending_array(array, size);
-        }
-        else if(order == descending)
-        {
-            load_descending_array(array, size);
-        }
-        else if(order == randomm)
-        {
-            load_random_array(array, size, i+1);
-        }
-
-        //BubbleSort(array, size);
-        //MergeSort(array, size);
-        //HeapSort(array, size);
-        //SelectionSort(array,size);
-        //ShellSort(array,size);
-        //InsertionSort(array,size);
-        //mudar algoritimo
-
-        clock_t start = clock();
-        QuickSortMiddle(array,0,size-1);
-        clock_t end = clock();
-
-
-        for(int j = 0; j < size - 1; j++)
-        {
-            if(array[j] >= array[j + 1])
-            {
-                flag = 0;
-                error = i;
-                break;
-            }
-        }
-
-        if(error != -1)break;
-
-        double elapsed = (double)(end - start)/CLOCKS_PER_SEC;
-        test_time[i] = elapsed;
+        calculate_avarege(order,size, test_quantity, array, flag, error);
     }
-
-    double result = 0;
-    for(int i = 0; i < test_quantity; i++)
-    {
-        result += test_time[i];
-    }
-
-    result = (double)result/test_quantity;
-
-    if(error == -1)
-    {
-        printf("media: %lf\n",result);
-    }
-    else
-    {
-        printf("flag: %d\n",flag);
-        printf("error: %d\n",error);
-    }
-
     return 0;
 }
