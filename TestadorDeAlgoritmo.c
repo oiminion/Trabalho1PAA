@@ -92,7 +92,7 @@ void calculate_avarege(enum ORDER order,int size,int test_quantity,int array[],i
             //mudar algoritimo
 
             clock_t start = clock();
-            QuickSortMiddle(array,0,size-1);
+            MergeSort(array,size);
             clock_t end = clock();
 
 
