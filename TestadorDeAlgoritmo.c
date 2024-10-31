@@ -92,7 +92,7 @@ void calculate_avarege(enum ORDER order,int size,int test_quantity,int array[],i
             //mudar algoritimo
 
             clock_t start = clock();
-            MergeSort(array,size);
+            QuickSortFirst(array,size);
             clock_t end = clock();
 
 
@@ -134,7 +134,7 @@ void calculate_avarege(enum ORDER order,int size,int test_quantity,int array[],i
 int main()
 {
     int size = 1000;
-    enum ORDER order = randomm;
+    enum ORDER order = ascending;
 
     int test_quantity = 100;
     int array[100000];
@@ -144,7 +144,7 @@ int main()
 
     calculate_avarege(order,size, test_quantity, array, flag, error);
 
-    for(size = 5000; size <= 100000; size += 5000)
+    for(size = 25000; size <= 100000; size += 5000)
     {
         calculate_avarege(order,size, test_quantity, array, flag, error);
     }
