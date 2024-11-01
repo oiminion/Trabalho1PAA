@@ -1,20 +1,33 @@
-void ShellSort(int vet[], int size) {
-    int i, j, value;
 
-    int h = 1;
-    while(h < size) {
-        h = 3*h+1;
+int pow(int num, int exp)
+{
+    int result = 1;
+    for(int i = 0; i < exp; i++)
+    {
+        result *= num;
     }
-    while (h > 0) {
-        for(i = h; i < size; i++) {
-            value = vet[i];
-            j = i;
-            while (j > h-1 && value <= vet[j - h]) {
-                vet[j] = vet[j - h];
-                j = j - h;
+    return result;
+}
+
+void ShellSort(int array[], int size) {
+    int i, j, value;
+    int k = 1;
+
+    while(pow(2,k) - 1 < size) {
+        k++;
+    }
+    k--;
+    for(k; k > 0; k--)
+    {
+        int gap = pow(2,k) - 1;
+        for(int i = gap; i < size; i++)
+        {
+            int value = array[i];
+            for(j = i; j >= gap && array[j - gap] > value; j -= gap)
+            {
+                array[j] = array[j - gap];
             }
-            vet[j] = value;
+            array[j] = value;
         }
-        h = h/3;
     }
 }
